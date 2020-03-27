@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="sim" default="true" />
+
+    <!-- send urdf to param server -->
+    <param name="robot_description" command="$(find xacro)/xacro '$(find pilz_tutorial)/urdf/my_robot_model.xacro'"/>
+    <!-- <param name="prbt_robot_description" command="$(find xacro)/xacro '$(find pilz_tutorial)/urdf/snp_prbt_description.urdf.xacro'"/> -->
+
+    <include file="$(find prbt_moveit_config)/launch/moveit_planning_execution.launch">
+        <arg name="load_robot_description" value="false"/>
+        <arg name="sim" value="$(arg sim)"/>
+        <arg name="pipeline" value="pilz_command_planner"/>
+    </include>
+
+</launch>
