@@ -50,7 +50,8 @@
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>prbt_moveit_config</build_depend>
-  <build_depend>trac-ik</build_depend>
+  <build_depend>trac_ik</build_depend>
+  <build_depend>pilz_robot_programming</build_depend>
   <build_export_depend>prbt_moveit_config</build_export_depend>
   <exec_depend>prbt_moveit_config</exec_depend>
 
