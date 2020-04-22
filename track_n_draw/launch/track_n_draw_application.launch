@@ -8,6 +8,12 @@
 
     <!-- Robot tf bradcasting -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+      <!-- run the robot simulator and action interface nodes -->
+    <group if="$(arg sim)">
+        <!-- We assume that no safety controller is connected, so we need to fake the corresponding interface -->
+        <!--  - this includes: speed override -->
+        <include file="$(find prbt_hardware_support)/launch/fake_safety_interface.launch" />
+    </group>
 
     <!-- Run the main MoveIt executable without trajectory execution (we do not have controllers configured by default) -->
     <include file="$(find snp_prbt_moveit_config)/launch/move_group.launch">
